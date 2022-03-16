@@ -92,12 +92,12 @@ data_test= {
 
 data_frame_test= pandas.DataFrame(data_test, index= [0])
 
-complete_model= load_model("Complete_Data_Frame/Complete_RF_Model")
-complete_model_without_20K= load_model("Data_Frame_without_20K/Model_without_20K")
-model_1 = load_model("Data_Frame_1/RF_Model_1")
-model_2 = load_model("Data_Frame_2/RF_Model_2")
-model_3 = load_model("Data_Frame_3/RF_Model_3")
-model_4 = load_model("Data_Frame_4/RF_Model_4")
+complete_model= load_model("Complete_Data_Frame/Complete_RF_Model.pkl")
+complete_model_without_20K= load_model("Data_Frame_without_20K/Model_without_20K.pkl")
+model_1 = load_model("Data_Frame_1/RF_Model_1.pkl")
+model_2 = load_model("Data_Frame_2/RF_Model_2.pkl")
+model_3 = load_model("Data_Frame_3/RF_Model_3.pkl")
+model_4 = load_model("Data_Frame_4/RF_Model_4.pkl")
 
 col1, col2, col3 , col4, col5 = st.columns(5)
 
