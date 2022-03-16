@@ -1,6 +1,7 @@
 import pandas
 import streamlit as st
-from pycaret.classification import load_model, predict_model
+import pickle
+#from pycaret.classification import load_model, predict_model
 
 countries= ['Select',
     'united kingdom', 'united states' ,'united arab emirates' ,'vietnam',
@@ -92,12 +93,12 @@ data_test= {
 
 data_frame_test= pandas.DataFrame(data_test, index= [0])
 
-complete_model= load_model("Complete_Data_Frame/Complete_RF_Model")
-complete_model_without_20K= load_model("Data_Frame_without_20K/Model_without_20K")
-#model_1 = load_model("Data_Frame_1/RF_Model_1")
-model_2 = load_model("Data_Frame_2/RF_Model_2")
-model_3 = load_model("Data_Frame_3/RF_Model_3")
-model_4 = load_model("Data_Frame_4/RF_Model_4")
+complete_model= pickle.load(open("Complete_Data_Frame/Complete_RF_Model","rb"))
+complete_model_without_20K= pickle.load(open("Data_Frame_without_20K/Model_without_20K","rb"))
+model_1 = pickle.load(open("Data_Frame_1/RF_Model_1","rb"))
+model_2 = pickle.load(open("Data_Frame_2/RF_Model_2","rb"))
+model_3 = pickle.load(open("Data_Frame_3/RF_Model_3","rb"))
+model_4 = pickle.load(open("Data_Frame_4/RF_Model_4","rb"))
 
 col1, col2, col3 , col4, col5 = st.columns(5)
 
@@ -114,12 +115,12 @@ with col3 :
 
 if center_button:
     
-    predict_1= predict_model(model_2, data=data_frame_test)
-    predict_2= predict_model(model_2, data=data_frame_test)
-    predict_3= predict_model(model_3, data=data_frame_test)
-    predict_4= predict_model(model_4, data=data_frame_test)
-    predict_complete= predict_model(complete_model, data=data_frame_test)
-    predict_without_20K= predict_model(complete_model_without_20K, data=data_frame_test)
+    predict_1= model_1.predict(data_frame_test)
+    predict_2= model_2.predcit(data_frame_test)
+    predict_3= model_3.predict(data_frame_test)
+    predict_4= model_4.predict(data_frame_test)
+    predict_complete= complete_model.predict(data_frame_test)
+    predict_without_20K= complete_model_without_20K.predict(data_frame_test)
 
 
 
